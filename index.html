@@ -20,7 +20,10 @@
                 document.getElementById('demo').innerHTML += position.coords.latitude + '<br>';
                 document.getElementById('demo').innerHTML += position.coords.longitude + '<br>';
                 document.getElementById('demo').innerHTML += position.coords.accuracy + '<br>';
-            })
+            }, (err) => {
+                console.log(err)
+                document.getElementById('demo').innerHTML = err;
+            }, { enableHighAccuracy: true });
         } else {
             /* la geolocalización NO está disponible */
             console.log('Geolocation State: Not supported');
