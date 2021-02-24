@@ -13,11 +13,13 @@
         if ("geolocation" in navigator) {
             /* la geolocalización está disponible */
             console.log('Geolocation State: Supported');
-            document.getElementById('demo').innerHTML = 'Geolocation State: Supported';
+            document.getElementById('demo').innerHTML = 'Geolocation State: Supported <br>';
 
             navigator.geolocation.getCurrentPosition((position) => {
                 console.log(position.coords.latitude);
-                document.getElementById('demo').innerHTML = position.coords.latitude;
+                document.getElementById('demo').innerHTML += position.coords.latitude + '<br>';
+                document.getElementById('demo').innerHTML += position.coords.longitude + '<br>';
+                document.getElementById('demo').innerHTML += position.coords.accuracy + '<br>';
             })
         } else {
             /* la geolocalización NO está disponible */
