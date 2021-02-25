@@ -77,7 +77,7 @@
                 document.getElementById('demo').innerHTML += acc + '<br>';
 
                 let nearest = locations.forEach((location) => {
-                    if(calcCrow(location.lat, location.lon, lat, lon) < 0.5) {
+                    if(calcCrow(location.lat, location.lon, lat, lon) < 0.1) {
                         document.getElementById('demo').innerHTML += 'You are in ' + location.name;
                     }
                 })
