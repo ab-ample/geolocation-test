@@ -5,92 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Geolocation Test</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Geolocation Test</h1>
-    <p id="demo"></p>
-    <script>
-        // 52.5018232,13.4164226
-
-        let locations = [
-            {
-                name: 'Amazone zu Pferde',
-                lat: 52.5144813,
-                lon: 13.3685318
-            },
-            {
-                name: 'Monumento a los judíos de Europa asesinados',
-                lat: 52.514657,
-                lon: 13.378760
-            },
-            {
-                name: 'Rosengarten',
-                lat: 52.5140822,
-                lon: 13.3541314
-            },
-            {
-                name: 'Rousseau-Säule',
-                lat: 52.5136828,
-                lon: 13.3559638
-            },
-            {
-                name: 'Oranienplatz',
-                lat: 52.5018232,
-                lon: 13.4164226
-            }
-        ];
-
-        // Converts numeric degrees to radians
-        let toRad = (Value) => {
-            return Value * Math.PI / 180;
-        }
-
-        //This function takes in latitude and longitude of two location and returns the distance between them as the crow flies (in km)
-        let calcCrow = (lat1, lon1, lat2, lon2) => {
-            var R = 6371; // km
-            var dLat = toRad(lat2-lat1);
-            var dLon = toRad(lon2-lon1);
-            var lat1 = toRad(lat1);
-            var lat2 = toRad(lat2);
-
-            var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-                Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2); 
-            var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
-            var d = R * c;
-            return d;
-        }
-
-        if ("geolocation" in navigator) {
-            /* la geolocalización está disponible */
-            console.log('Geolocation State: Supported');
-            document.getElementById('demo').innerHTML = 'Geolocation State: Supported <br>';
-
-            navigator.geolocation.getCurrentPosition((position) => {
-
-                let lat = position.coords.latitude;
-                let lon = position.coords.longitude;
-                let acc = position.coords.accuracy;
-
-                console.log(lat, lon, acc);
-                document.getElementById('demo').innerHTML += lat + '<br>';
-                document.getElementById('demo').innerHTML += lon + '<br>';
-                document.getElementById('demo').innerHTML += acc + '<br>';
-
-                let nearest = locations.forEach((location) => {
-                    if(calcCrow(location.lat, location.lon, lat, lon) < 0.05) {
-                        document.getElementById('demo').innerHTML += 'You are in ' + location.name;
-                    }
-                })
-
-            }, (err) => {
-                console.log(err)
-                document.getElementById('demo').innerHTML = err;
-            }, { enableHighAccuracy: true });
-        } else {
-            /* la geolocalización NO está disponible */
-            console.log('Geolocation State: Not supported');
-            document.getElementById('demo').innerHTML = 'Geolocation State: Not supported';
-        }
-        </script>
+    <header>
+        <h1>Geolocation Test</h1>
+        <button id="refresh">Refresh</button>
+    </header>
+    <main id="content">
+        <div id="oranienplatz">
+            <h3>Oranienplatz</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, ipsa quia saepe nihil harum voluptates, omnis rem nesciunt, obcaecati porro animi temporibus suscipit eaque. Quo nulla ducimus pariatur distinctio doloribus.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate blanditiis at delectus quis cumque corporis consequuntur accusamus, consectetur velit aliquam rerum obcaecati in error magnam? Ipsum mollitia obcaecati sint error?</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde magni quas quae laboriosam. Explicabo nulla voluptatibus eaque exercitationem cum veritatis fugiat aliquid blanditiis! Cumque non harum odio dolorum quaerat voluptas.</p>
+        </div>
+    </main>
+    <script src="js/main.js"></script>
 </body>
 </html>

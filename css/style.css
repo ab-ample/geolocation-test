@@ -1,0 +1,22 @@
+body {
+    overflow: hidden;
+}
+
+div {
+    width: 300px;
+    height: 40vh;
+    background: hotpink;
+    overflow: scroll;
+
+    position: absolute;
+    bottom: -30vh;
+    transition: bottom 1s;
+}
+
+div:hover {
+    bottom: -10vh;
+}
+
+div#oranienplatz {
+    display: none;
+}
