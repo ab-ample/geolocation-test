@@ -2,9 +2,9 @@
 
 let locations = [
     {
-        name: 'Amazone zu Pferde',
-        lat: 52.5144813,
-        lon: 13.3685318
+        name: 'Drachenbrunnen',
+        lat: 52.5027134,
+        lon: 13.4165264
     },
     {
         name: 'Monumento a los judíos de Europa asesinados',
@@ -22,9 +22,9 @@ let locations = [
         lon: 13.3559638
     },
     {
-        name: 'oranienplatz',
-        lat: 52.5018232,
-        lon: 13.4164226
+        name: 'Lidl Oranienplatz',
+        lat: 52.5021784,
+        lon: 13.4145554
     }
 ];
 
